@@ -1,8 +1,11 @@
 import * as esbuild from 'esbuild-wasm'
 import { useEffect, useRef, useState } from 'react'
+import 'bulmaswatch/superhero/bulmaswatch.min.css'
 
 import { unpkgPathPlugin } from './utils/unpkg-path-plugin'
 import { fetchPlugin } from './utils/fetch-plugin'
+
+import CodeEditor from './components/CodeEditor'
 
 const App = () => {
 	const ref = useRef<any>()
@@ -62,12 +65,11 @@ const App = () => {
 	`
 
 	return (
-		<div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)' }}>
+		<div>
+			<CodeEditor initialValue='' onChange={(value) => setInput(value)} />
+			<textarea onChange={(e) => setInput(e.target.value)} value={input} />
 			<div>
-				<textarea onChange={(e) => setInput(e.target.value)} value={input} />
-				<div>
-					<button onClick={handleClick}>Submit</button>
-				</div>
+				<button onClick={handleClick}>Submit</button>
 			</div>
 
 			<iframe
