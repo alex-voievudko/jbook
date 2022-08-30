@@ -1,13 +1,11 @@
 import 'bulmaswatch/superhero/bulmaswatch.min.css'
 
-import CodeCell from './components/CodeCell'
-import TextCell from './components/TextCell'
+import CellList from './components/CellList'
 
 const App = () => {
 	return (
 		<div>
-			{/* <CodeCell /> */}
-			<TextCell />
+			<CellList />
 		</div>
 	)
 }
